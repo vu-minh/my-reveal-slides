@@ -12,6 +12,7 @@
     <script src="assets/figure-configs.js"></script>
     <script src="assets/visualize.js"></script>
     <script src="assets/figures.js"></script>
+    <script src="assets/playground.js"></script>
 
     <style>
         /* Resets */
@@ -272,8 +273,6 @@
             </div>
         </div>
 
-        <script src="assets/playground.js"></script>
-
         <script>
             // This depends on playground.js having setup the GLOBAL object
             function runTrayState() {
@@ -444,7 +443,8 @@
 
         <hr>
 
-        <h3 class="l-middle">Credit: How to Use t-SNE Effectively</h1>
+        <h3 class="l-middle">Credit: How to Use t-SNE Effectively </h3>
+        <d-cite key="wattenberg2016how"></d-cite>
 
         <dt-include src="assets/tsne-group.html">
             <style>
@@ -675,13 +675,27 @@
         </dt-include>
     </dt-article>
 
-    <script type="text/front-matter">
-        title: How to Use t-SNE Effectively
-    authors:
-      - Martin Wattenberg: http://hint.fm/
-      - "Fernanda Viégas": http://hint.fm/
-      - Ian Johnson: http://enjalot.github.io/
-  </script>
+    <script type="text/bibliography">
+        @article{maaten2008visualizing,
+        title={Visualizing data using t-SNE},
+        author={Maaten, Laurens van der and Hinton, Geoffrey},
+        journal={Journal of Machine Learning Research},
+        volume={9},
+        number={Nov},
+        pages={2579--2605},
+        year={2008},
+        url={http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf}
+    }
+    @article{wattenberg2016how,
+        author = {Wattenberg, Martin and Viégas, Fernanda and Johnson, Ian},
+        title = {How to Use t-SNE Effectively},
+        journal = {Distill},
+        year = {2016},
+        url = {http://distill.pub/2016/misread-tsne},
+        doi = {10.23915/distill.00002}
+    }
+    </script>
+
 </body>
 
 </html>
