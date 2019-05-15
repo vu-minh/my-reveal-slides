@@ -61,11 +61,46 @@
 	<d-title style="display: none;"></d-title>
 	<d-byline style="display:none;"></d-byline>
 
+	<style>
+		/*Show slide number in between 2 navigator arrows*/
+		.reveal .slide-number {
+			font-size: 24pt;
+			color: #ffffff;
+			margin: 0;
+			padding: 0;
+			right: 38px;
+			bottom: 48px;
+		}
+
+		/* .reveal .slide-number {
+			position: fixed;
+			display: block;
+			right: 58px;
+			bottom: 8px;
+			z-index: 31;
+			font-family: Helvetica, sans-serif;
+			font-size: 12px;
+			line-height: 1;
+			color: #fff;
+			background-color: rgba(0, 0, 0, 0.4);
+			padding: 5px;
+		}
+
+		.reveal .slide-number-delimiter {
+			margin: 0 3px;
+		} */
+
+		/*Make slide title on top left (make sure to set center:False in the init params*/
+		.reveal .slides>section>section {
+			text-align: left;
+		}
+	</style>
+
 	<div class="reveal">
 
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<div class="slides">
-			<section>
+			<section style="margin-top:20%">
 				<h3>Interactive Machine Learning for Information Visualization</h3>
 				<!-- <p>Confirmation</p> -->
 				<p><small>Viet Minh Vu</small></p>
@@ -73,12 +108,42 @@
 				<p><small>17/05/2019</small></p>
 			</section>
 
-			<section data-background-iframe="../distill_pub/post--misread-tsne/public/tsne_2_problems.html"
-				data-background-interactive>
+			<section>
+				<section>
+					<h4>Drawbacks of t-SNE</h4>
+					<p>2 problems:</p>
+				</section>
+
+				<section data-background-iframe="../distill_pub/post--misread-tsne/public/tsne_2_problems.html"
+					data-background-interactive>
+				</section>
 			</section>
 
-			<section data-background-iframe="http://localhost:8888/main.html"
-				data-background-interactive>
+
+			<section data-background-iframe="./hello_minh/qPCR_pca_bokeh.html"
+					data-background-interactive>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					## Page title
+				
+					A paragraph with some text and a [link](http://hakim.se).
+
+					And math:
+					$$
+					a^2 + b^2 = c^2
+					$$
+				</textarea>
+			</section>
+
+			<section>
+				<section>
+					<p>$$ \sum_x^N x_i $$</p>
+				</section>
+
+				<section data-background-iframe="http://localhost:8888/main.html" data-background-interactive>
+				</section>
 			</section>
 
 			<section data-background-iframe="http://localhost:8881/notebooks/Interactive%20PPCA%20model.ipynb"
@@ -86,7 +151,9 @@
 			</section>
 
 			<section>
-					<p><d-slider style="width: 200px;"></d-slider></p>
+				<p>
+					<d-slider style="width: 200px;"></d-slider>
+				</p>
 			</section>
 
 			<section>
@@ -115,10 +182,18 @@
 		Reveal.initialize({
 			controls: true,
 			progress: true,
-			center: true,
+			center: false,
 			hash: true,
+			slideNumber: true,
 
 			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+
+			math: {
+				mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+				config: 'TeX-AMS_HTML-full', // See http://docs.mathjax.org/en/latest/config-files.html
+				// pass other options into `MathJax.Hub.Config()`
+			},
 
 			// More info https://github.com/hakimel/reveal.js#dependencies
 			dependencies: [{
@@ -147,6 +222,10 @@
 				},
 				{
 					src: '../plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: '../plugin/math/math.js',
 					async: true
 				}
 			]
