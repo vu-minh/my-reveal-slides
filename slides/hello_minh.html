@@ -14,6 +14,8 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<!-- distill pub template -->
+	<script src="../lib/js/distill.template.v2.js"></script>
 	<!-- <script src="https://distill.pub/template.v2.js"></script> -->
 
 	<link rel="stylesheet" href="../css/reset.css">
@@ -35,13 +37,29 @@
 
 	<!--[if lt IE 9]>
 		<script src="../lib/js/html5shiv.js"></script>
-		<![endif]-->
+	<![endif]-->
 
-	<!-- distill pub template -->
-	<!-- <script src="../lib/js/distill.template.v2.js"></script> -->
 </head>
 
 <body>
+	<d-front-matter>
+		<script type="text/json">
+			{
+				"title": "Interactive Machine Learning for Information Visualization",
+				"description": "Confirmation Candidate of Minh Vu's Phd thesis",
+				"authors": [{
+					"author": "Viet Minh Vu",
+					"authorURL": "",
+					"affiliation": "University of Namur",
+					"affiliationURL": "unamur.be"
+				}]
+			}
+		</script>
+	</d-front-matter>
+
+	<!-- do not show distill element -->
+	<d-title style="display: none;"></d-title>
+	<d-byline style="display:none;"></d-byline>
 
 	<div class="reveal">
 
@@ -59,8 +77,31 @@
 				data-background-interactive>
 			</section>
 
+			<section data-background-iframe="http://localhost:8888/main.html"
+				data-background-interactive>
+			</section>
+
+			<section data-background-iframe="http://localhost:8881/notebooks/Interactive%20PPCA%20model.ipynb"
+				data-background-interactive>
+			</section>
+
 			<section>
-				<!-- ABC <dt-cite key="wattenberg2016how"></dt-cite> -->
+					<p><d-slider style="width: 200px;"></d-slider></p>
+			</section>
+
+			<section>
+				<d-article>
+					<p>ABC <d-cite key="wattenberg2016how"></d-cite>
+					</p>
+				</d-article>
+			</section>
+
+			<section>
+				<d-article>
+					<p>Gaussian process latent variable models for visualisation of high dimensional data<d-cite
+							key="lawrence2004gaussian"></d-cite>
+					</p>
+				</d-article>
 			</section>
 
 		</div>
@@ -111,6 +152,11 @@
 			]
 		});
 	</script>
+
+	<d-appendix>
+		<d-bibliography src="refs.bib"></d-bibliography>
+	</d-appendix>
+
 </body>
 
 </html>
