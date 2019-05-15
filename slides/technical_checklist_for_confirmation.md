@@ -22,3 +22,14 @@
     * socket server port 5000
     * static server port 8888 (root: idr-server)
     * elm client port 8000 (root: idr-elm, run elm-reactor)
+
+
+### Let jupyter notebook run on embedded iframe
++ generate jupyter config: `jupyter notebook --generate-config`
+
++ edit: `~/.jupyter/jupyter_notebook_config.py`
+```
+# Enable notebook in iframe
+c.NotebookApp.tornado_settings = {'headers': {
+    'Content-Security-Policy': "frame-ancestors 'self' http://localhost:8001"}}
+```
