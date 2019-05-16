@@ -167,6 +167,7 @@
 
 			<section>
 				<h3>Work plan Overview</h3>
+				<center><img src="./hello_minh/workplan_overview000.png" /></center>
 			</section>
 
 			<!-- ################################################################################################ -->
@@ -302,6 +303,7 @@
 
 			<section>
 				<h3>Summary the past works</h3>
+				<center><img src="./hello_minh/workplan_pastworks01.png" /></center>
 			</section>
 
 
@@ -425,11 +427,12 @@
 				<section data-transition="none">
 					<center><img width="100%" data-src="./hello_minh/FASHION200_niter11.png" /></center>
 				</section>
-				</section>
+
 			</section>
 
 			<section>
 				<h3>Summary the ongoing works with t-SNE</h3>
+				<center><img src="./hello_minh/workplan_ongoing01.png" /></center>
 			</section>
 
 			<!-- ################################################################################################ -->
@@ -439,9 +442,69 @@
 			<!-- ################################################################################################ -->
 
 			<section>
-				<h3>Future works with probabilistic DR models</h3>
+				<h3>Future works: probabilistic DR models</h3>
 			</section>
 
+			<section>
+				<h3>Gaussian Process Latent Variable Model</h3>
+				<p>GP-LVM</p>
+			</section>
+
+			<section>
+				<h3>Why GP-LVM? An example</h3>
+				<section>
+					<p>Data</p>
+					<ul>
+						<li>Real-time / quantitative polymerase chain reaction (Real-Time PCR) data</li>
+						<li>48 genes obtained from mice </li>
+						<li>Data values are measurements of each gene ... </li>
+						<li>... at various stages of development: from the 1-cell stage to the 64-cell stage</li>
+					</ul>
+					<p class="fake_footer">Resolution of Cell Fate Decisions Revealed by Single-Cell Gene Expression Analysis from Zygote to Blastocyst.
+							<a href="https://www.sciencedirect.com/science/article/pii/S1534580710001103?via%3Dihub">[Guo2010]</a></p>
+					
+				</section>
+
+				<section>
+					<p>Data</p>
+					<pre style="font-size:16px;">
+Stage labels: ['1', '2', '4', '8', '16', '32 TE', '32 ICM', '64 PE', '64 TE', '64 EPI']
+
+qPCR data:
+
+             Actb      Ahcy      Aqp3    ...        Tcf23      Utf1    Tspan8
+    '1'  0.541050 -1.203007  1.030746    ...     0.942981  1.348892 -1.051999
+'32 TE'  0.680832 -1.355306  2.456375    ...     1.064399  1.469397 -0.996275
+    '2'  1.056038 -1.280447  2.046133    ...     1.211529  1.615421 -0.651393
+'64 PE'  0.732331 -1.326911  2.464234    ...     1.071541  1.476485 -0.699586
+   '16'  0.629333 -1.244308  1.316815    ...     1.114394  1.519017 -0.798985
+...
+					</pre>
+				</section>
+				
+				<section data-background-iframe="./hello_minh/qPCR_bokeh_group1.html" data-background-interactive>
+				</section>
+	
+				<section>
+						<center><img width="65%" src="./hello_minh/explain_qPRC_data.jpg" /></center>
+						<p class="fake_footer">Image credit: Formation of the blastocyst during early mammalian embryonic development.
+							<a href="https://www.mskcc.org/research/ski/labs/anna-katerina-hadjantonakis/i-morphogenesis-early-mammalian-embryo">[url]</a></p>
+				</section>
+					
+				<section data-background-iframe="./hello_minh/qPCR_bokeh_group2.html" data-background-interactive>
+					<p class="fake_footer" style="position: absolute; top:500px;">
+						Reproduce from: GrandPrix scaling up the Bayesian GPLVM for single-cell data <a href="https://academic.oup.com/bioinformatics/article/35/1/47/5047752">[Ahmed2019]</a>,
+						with pyro tutorial on GP-LVM <a href="http://pyro.ai/examples/gplvm.html">[url]</a></p>
+				</section>
+
+			</section>
+
+			<section>
+				<h3>VAE</h3>
+				<section class="hide_title" data-background-iframe="../distill_pub/non_public/VISxAI 2018_ Towards an Interpretable Latent Space_demo_vae.html"
+					data-background-interactive>
+				</section>
+			</section>
 
 			<section>
 				<h3>Summary the future works</h3>
@@ -453,26 +516,20 @@
 			<!-- ################################################################################################ -->
 
 			<section>
-				<h3>Recap</h3>
+				<h3>Recap: Some ideas we can work on</h3>
+				<center><img src="./hello_minh/workplan_recap.png" /></center>
 			</section>
 
 			<!-- ################################################################################################ -->
 
 
-			<section>
-				<section>
-					<h3>Drawbacks of t-SNE</h3>
-					<p>2 problems:</p>
-				</section>
 
-				<section data-background-iframe="../distill_pub/post--misread-tsne/public/tsne_2_problems.html"
-					data-background-interactive>
-				</section>
+
+			<section id="end">
+				<center>
+					<h1>Thank you!</h1>
+				</center>
 			</section>
-
-			<section data-background-iframe="./hello_minh/qPCR_pca_bokeh.html" data-background-interactive>
-			</section>
-
 			<section id="themes">
 				<h3>Slide configs</h3>
 				<p>
