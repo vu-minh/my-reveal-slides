@@ -7,7 +7,7 @@
 
 + jupyter notebook for ppca-uncertainty runs on port 8881
 + embed: http://localhost:8881/notebooks/Interactive%20PPCA%20model.ipynb
-
++ dash_app: http://0.0.0.0:8050/ port 8050
 
 
 
