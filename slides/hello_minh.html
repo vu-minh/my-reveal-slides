@@ -15,12 +15,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- distill pub template -->
-	<script src="../lib/js/distill.template.v2.js"></script>
+	<!-- <script src="../lib/js/distill.template.v2.js"></script> -->
 	<!-- <script src="https://distill.pub/template.v2.js"></script> -->
 
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/reveal.css">
-	<link rel="stylesheet" href="../css/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../css/theme/simple.css" id="theme">
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="../lib/css/monokai.css">
@@ -64,11 +64,11 @@
 	<style>
 		/*Show slide number in between 2 navigator arrows*/
 		.reveal .slide-number {
-			font-size: 24pt;
+			font-size: 20pt;
 			color: #ffffff;
 			margin: 0;
 			padding: 0;
-			right: 38px;
+			right: 34px;
 			bottom: 48px;
 		}
 
@@ -127,6 +127,22 @@
 		.col {
 			flex: 1;
 		}
+
+		/*Custom header footer*/
+		.footer {
+			position: absolute;
+			/* left: 5%; */
+			font-family: monospace;
+			color: dodgerblue;
+			bottom: 1em;
+			font-size: 0.5em;
+		}
+
+		.fake_footer {
+			font-family: monospace;
+			color: dodgerblue;
+			font-size: 0.5em;
+		}
 	</style>
 
 	<div class="reveal">
@@ -172,13 +188,13 @@
 
 
 			<section>
-				<h4>Review of DR methods with constraints</h4>
+				<h3>Review of DR methods with constraints</h3>
 				<p>Category</p>
 			</section>
 
 
 			<section>
-				<h4>Fixed point constraints with t-SNE</h4>
+				<h3>Fixed point constraints with t-SNE</h3>
 				<section>
 					<p>Motivation</p>
 					<p>Goal</p>
@@ -195,7 +211,7 @@
 
 
 			<section>
-				<h4>Tuning perplexity with user constraints</h4>
+				<h3>Tuning perplexity with user constraints</h3>
 				<section>
 					<p>Motivation</p>
 					<p>Goal</p>
@@ -236,7 +252,7 @@
 
 
 			<section>
-				<h4>Interactive PPCA</h4>
+				<h3>Interactive PPCA</h3>
 				<section>
 					<p>Motivation for Probabilistic Principle Component Analysis (PPCA) model </p>
 					<p>Goal: user-steering...</p>
@@ -256,7 +272,7 @@
 					<p>The result of the interactive model is explainable to the users.</p>
 					<center><img width="50%" data-src="./hello_minh/FASHION100_ippca_result.png" /></center>
 				</section>
-				
+
 				<section>
 					<p>Techniques</p>
 				</section>
@@ -276,6 +292,53 @@
 
 			<section>
 				<h3>Ongoing works with t-SNE</h3>
+				<p>Difficulty when working with t-SNE?</p>
+			</section>
+
+
+			<section>
+				<h3>Two drawbacks of t-SNE</h3>
+
+				<section>
+					<ul>
+						<li>Within-cluster distances</li>
+						<li>Between-clusters distances</li>
+					</ul>
+					<p> are not always well preserved in t-SNE</p>
+
+					<hr>
+
+					<sub><em>Do we need a t-SNE embedding in which the <strong>cluster sizes</strong> and the
+							<strong>distances between clusters</strong> are well preserved?</em></sub>
+				</section>
+				<div class="footer">
+					<p>How to Use t-SNE Effectively [Wattenberg2016]</p>
+				</div>
+
+				<section data-background-iframe="../distill_pub/post--misread-tsne/public/tsne_2_problems.html"
+					data-background-interactive>
+				</section>
+			</section>
+
+			<section>
+				<h3>Integrating the pairwise constraints into t-SNE</h3>
+
+				<section>
+					<em>Semantic Similarity</em>
+					<div class="fake_footer">
+						<p>An efficient framework for learning sentence representations [Logeswaran2018]</p>
+						<p>A Theoretical Analysis of Contrastive Unsupervised Representation Learning [Arora2019]</p>
+					</div>
+				</section>
+
+
+				<section>
+					<em>Triplet constraints</em>
+					<div class="fake_footer">
+						<p>Facenet: A unified embedding for face recognition and clustering [Schroff2015]</p>
+					</div>
+				</section>
+				
 			</section>
 
 
@@ -293,11 +356,11 @@
 				<h3>Future works with probabilistic DR models</h3>
 			</section>
 
-			
+
 			<section>
 				<h3>Summary the future works</h3>
 			</section>
-	
+
 			<!-- ################################################################################################ -->
 
 
@@ -312,7 +375,7 @@
 
 			<section>
 				<section>
-					<h4>Drawbacks of t-SNE</h4>
+					<h3>Drawbacks of t-SNE</h3>
 					<p>2 problems:</p>
 				</section>
 
@@ -322,6 +385,25 @@
 			</section>
 
 			<section data-background-iframe="./hello_minh/qPCR_pca_bokeh.html" data-background-interactive>
+			</section>
+
+			<section id="themes">
+				<h3>Slide configs</h3>
+					<p>
+						<br>
+						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/black.css'); return false;">Black (default)</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/white.css'); return false;">White</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/league.css'); return false;">League</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/sky.css'); return false;">Sky</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/beige.css'); return false;">Beige</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/simple.css'); return false;">Simple</a> <br>
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/serif.css'); return false;">Serif</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/blood.css'); return false;">Blood</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/night.css'); return false;">Night</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/moon.css'); return false;">Moon</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/solarized.css'); return false;">Solarized</a>
+					</p>
 			</section>
 
 		</div>
