@@ -143,13 +143,17 @@
 				<p><small>17/05/2019</small></p>
 			</section>
 
+
 			<section>
 				<h3>Scope</h3>
 			</section>
 
+
 			<section>
 				<h3>Work plan Overview</h3>
 			</section>
+
+			<!-- ################################################################################################ -->
 
 			<section>
 				<h3>What we've done so far</h3>
@@ -166,10 +170,12 @@
 				</ul>
 			</section>
 
+
 			<section>
 				<h4>Review of DR methods with constraints</h4>
 				<p>Category</p>
 			</section>
+
 
 			<section>
 				<h4>Fixed point constraints with t-SNE</h4>
@@ -206,28 +212,19 @@
 								<li>the user's feedback in form of constraints,</li>
 								<li>the <em>relationship</em> between points:</li>
 							</ul>
-							<p>$$
-								q_{ij} = \frac
-								{ ( 1 + || y_i - y_j ||^2 )^{-1} }
-								{ \sum_{k \neq l} { ( 1 + ||y_k - y_l||^2 )^{-1} } }.
-								$$
+							<p>$$q_{ij} = \frac{ ( 1 + || y_i - y_j ||^2 )^{-1} }
+								{ \sum_{k \neq l} { ( 1 + ||y_k - y_l||^2 )^{-1} } }.$$
 							</p>
 						</div>
 					</div>
-
 					<p>So we could transform the constraints into the scores:</p>
 					<div class="container">
 						<div class="col">
-							<p>
-								$$
-								S_{\mathcal{M}} = \frac{1}{|\mathcal{M}|} \sum_{(i,j) \in \mathcal{M}} \log q_{ij}.
-								$$
+							<p>$$S_{\mathcal{M}} = \frac{1}{|\mathcal{M}|} \sum_{(i,j) \in \mathcal{M}} \log q_{ij}.$$
 							</p>
 						</div>
 						<div class="col">
-							<p>$$
-								S_{\mathcal{C}} = -\frac{1}{|\mathcal{C}|} \sum_{(i,j) \in \mathcal{C}} \log q_{ij}.
-								$$
+							<p>$$S_{\mathcal{C}} = -\frac{1}{|\mathcal{C}|} \sum_{(i,j) \in \mathcal{C}} \log q_{ij}.$$
 							</p>
 						</div>
 					</div>
@@ -241,21 +238,77 @@
 			<section>
 				<h4>Interactive PPCA</h4>
 				<section>
-					<p>Motivation</p>
+					<p>Motivation for Probabilistic Principle Component Analysis (PPCA) model </p>
 					<p>Goal: user-steering...</p>
 				</section>
 
-				<section>
-					<p>Example</p>
-					<div class="fragment">
-						<img width="70%" data-src="./hello_minh/FASHION100_init_ppca.png" />
-						<img width="70%" data-src="./hello_minh/FASHION100_selected_points.png" />
-					</div>
+				<section data-transition="none" style="font-size:0.75em !important;">
+					<p>Initial visualization with the PPCA model.</p>
+					<center><img width="50%" data-src="./hello_minh/FASHION100_init_ppca.png" /></center>
 				</section>
+
+				<section data-transition="none" style="font-size:0.75em !important;">
+					<p>The user can manipulate the visualization by moving some points.</p>
+					<center><img width="50%" data-src="./hello_minh/FASHION100_selected_points.png" /></center>
+				</section>
+
+				<section data-transition="none" style="font-size:0.75em !important;">
+					<p>The result of the interactive model is explainable to the users.</p>
+					<center><img width="50%" data-src="./hello_minh/FASHION100_ippca_result.png" /></center>
+				</section>
+				
+				<section>
+					<p>Techniques</p>
+				</section>
+
 				<section data-background-iframe="http://localhost:8881/notebooks/Interactive%20PPCA%20model.ipynb"
 					data-background-interactive>
 				</section>
 			</section>
+
+
+			<section>
+				<h3>Summary the past works</h3>
+			</section>
+
+
+			<!-- ################################################################################################ -->
+
+			<section>
+				<h3>Ongoing works with t-SNE</h3>
+			</section>
+
+
+			<section>
+				<h3>Summary the ongoing works with t-SNE</h3>
+			</section>
+
+			<!-- ################################################################################################ -->
+
+
+
+			<!-- ################################################################################################ -->
+
+			<section>
+				<h3>Future works with probabilistic DR models</h3>
+			</section>
+
+			
+			<section>
+				<h3>Summary the future works</h3>
+			</section>
+	
+			<!-- ################################################################################################ -->
+
+
+			<!-- ################################################################################################ -->
+
+			<section>
+				<h3>Recap</h3>
+			</section>
+
+			<!-- ################################################################################################ -->
+
 
 			<section>
 				<section>
