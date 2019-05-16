@@ -273,6 +273,23 @@
 					<center><img width="50%" data-src="./hello_minh/FASHION100_ippca_result.png" /></center>
 				</section>
 
+				<section data-transition="none" style="font-size:0.75em !important;">
+					<p>The result of the interactive model is explainable to the users.</p>
+					<center><img width="95%" data-src="./hello_minh/FASHION100_ippca_compare.png" /></center>
+				</section>
+
+				<section data-transition="none" style="font-size:0.75em !important;">
+					<p>Goal: reveal the pattern that is not clear.</p>
+					<div class="container">
+						<div class="col">
+							<img width="100%" data-src="./hello_minh/annote_iPPCA_FASHION.svg" />
+						</div>
+						<div class="col">
+							<img width="100%" data-src="./hello_minh/FASHION100_ippca_result.png" />
+						</div>
+					</div>
+				</section>
+
 				<section>
 					<p>Techniques</p>
 				</section>
@@ -321,10 +338,14 @@
 			</section>
 
 			<section>
-				<h3>Integrating the pairwise constraints into t-SNE</h3>
+				<h3>Integrating pairwise constraints</h3>
 
 				<section>
 					<em>Semantic Similarity</em>
+					<p>$$\sum_{x,x^+,x^-}\left[-\log\left(\frac{e^{f(x)^Tf(x^+)}}{e^{f(x)^Tf(x^+)}+e^{f(x)^Tf(x^-)}}\right)\right]$$</p>
+					<p><sub>$f(x)$ is a representation of a sample $x$,</sub></p>
+					<p><sub>$x^+$ and $x^-$ are the corresponding <em>positive</em> and <em>negative</em> samples of $x$</sub></p>
+					<hr>
 					<div class="fake_footer">
 						<p>An efficient framework for learning sentence representations [Logeswaran2018]</p>
 						<p>A Theoretical Analysis of Contrastive Unsupervised Representation Learning [Arora2019]</p>
@@ -333,14 +354,42 @@
 
 
 				<section>
-					<em>Triplet constraints</em>
+					<em>Triplet constraints</em> (<em>triplet loss</em> as a regularization term)
+					<p>$$\sum_{x, x^+, x^-} \bigg( \big|\big|\; f(x) - f(x^+) \big|\big|^2 - \big|\big|\; f(x) - f(x^-) \big|\big|^2 + margin \bigg)$$</p>
+					<center><img width="60%" data-src="./hello_minh/triplet_loss.png" /></center>
+					<hr>
 					<div class="fake_footer">
 						<p>Facenet: A unified embedding for face recognition and clustering [Schroff2015]</p>
 					</div>
 				</section>
-				
+
 			</section>
 
+
+			<section>
+				<h3>Finding the best perplexity for t-SNE</h3>
+
+				<section>
+				<p>Problem of scalability</p>
+				</section>
+
+				<section>
+					<p>Proposed solution with <em>chain-tSNE</em></p>
+					<center><img width="80%" src="./hello_minh/chain-tSNE.png" /></center>
+					<sub>
+					<strike>Do not initialize randomly</strike>,
+					Do initialize with a precalculated solution (of a base-perplexity)
+					</sub>
+				</section>
+				<section>
+					<p>Proposed solution with <em>chain-tSNE</em></p>
+					<img src="./hello_minh/metaplot_COIL20_base30.png" />
+				</section>
+
+				<section>
+					<p>Proposed solution with <em>Bayesian Optimization</em></p>
+				</section>
+			</section>
 
 			<section>
 				<h3>Summary the ongoing works with t-SNE</h3>
@@ -389,21 +438,42 @@
 
 			<section id="themes">
 				<h3>Slide configs</h3>
-					<p>
-						<br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','../css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
+				<p>
+					<br>
+					<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+					<a href="#"
+						onclick="document.getElementById('theme').setAttribute('href','../css/theme/black.css'); return false;">Black
+						(default)</a> -
+					<a href="#"
+						onclick="document.getElementById('theme').setAttribute('href','../css/theme/white.css'); return false;">White</a>
+					-
+					<a href="#"
+						onclick="document.getElementById('theme').setAttribute('href','../css/theme/league.css'); return false;">League</a>
+					-
+					<a href="#"
+						onclick="document.getElementById('theme').setAttribute('href','../css/theme/sky.css'); return false;">Sky</a>
+					-
+					<a href="#"
+						onclick="document.getElementById('theme').setAttribute('href','../css/theme/beige.css'); return false;">Beige</a>
+					-
+					<a href="#"
+						onclick="document.getElementById('theme').setAttribute('href','../css/theme/simple.css'); return false;">Simple</a>
+					<br>
+					<a href="#"
+						onclick="document.getElementById('theme').setAttribute('href','../css/theme/serif.css'); return false;">Serif</a>
+					-
+					<a href="#"
+						onclick="document.getElementById('theme').setAttribute('href','../css/theme/blood.css'); return false;">Blood</a>
+					-
+					<a href="#"
+						onclick="document.getElementById('theme').setAttribute('href','../css/theme/night.css'); return false;">Night</a>
+					-
+					<a href="#"
+						onclick="document.getElementById('theme').setAttribute('href','../css/theme/moon.css'); return false;">Moon</a>
+					-
+					<a href="#"
+						onclick="document.getElementById('theme').setAttribute('href','../css/theme/solarized.css'); return false;">Solarized</a>
+				</p>
 			</section>
 
 		</div>
