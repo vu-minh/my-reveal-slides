@@ -342,9 +342,11 @@
 
 				<section>
 					<em>Semantic Similarity</em>
-					<p>$$\sum_{x,x^+,x^-}\left[-\log\left(\frac{e^{f(x)^Tf(x^+)}}{e^{f(x)^Tf(x^+)}+e^{f(x)^Tf(x^-)}}\right)\right]$$</p>
+					<p>$$\sum_{x,x^+,x^-}\left[-\log\left(\frac{e^{f(x)^Tf(x^+)}}{e^{f(x)^Tf(x^+)}+e^{f(x)^Tf(x^-)}}\right)\right]$$
+					</p>
 					<p><sub>$f(x)$ is a representation of a sample $x$,</sub></p>
-					<p><sub>$x^+$ and $x^-$ are the corresponding <em>positive</em> and <em>negative</em> samples of $x$</sub></p>
+					<p><sub>$x^+$ and $x^-$ are the corresponding <em>positive</em> and <em>negative</em> samples of
+							$x$</sub></p>
 					<hr>
 					<div class="fake_footer">
 						<p>An efficient framework for learning sentence representations [Logeswaran2018]</p>
@@ -355,7 +357,8 @@
 
 				<section>
 					<em>Triplet constraints</em> (<em>triplet loss</em> as a regularization term)
-					<p>$$\sum_{x, x^+, x^-} \bigg( \big|\big|\; f(x) - f(x^+) \big|\big|^2 - \big|\big|\; f(x) - f(x^-) \big|\big|^2 + margin \bigg)$$</p>
+					<p>$$\sum_{x, x^+, x^-} \bigg( \big|\big|\; f(x) - f(x^+) \big|\big|^2 - \big|\big|\; f(x) - f(x^-)
+						\big|\big|^2 + margin \bigg)$$</p>
 					<center><img width="60%" data-src="./hello_minh/triplet_loss.png" /></center>
 					<hr>
 					<div class="fake_footer">
@@ -370,15 +373,15 @@
 				<h3>Finding the best perplexity for t-SNE</h3>
 
 				<section>
-				<p>Problem of scalability</p>
+					<p>Problem of scalability</p>
 				</section>
 
 				<section>
 					<p>Proposed solution with <em>chain-tSNE</em></p>
 					<center><img width="80%" src="./hello_minh/chain-tSNE.png" /></center>
 					<sub>
-					<strike>Do not initialize randomly</strike>,
-					Do initialize with a precalculated solution (of a base-perplexity)
+						<strike>Do not initialize randomly</strike>,
+						Do initialize with a precalculated solution (of a base-perplexity)
 					</sub>
 				</section>
 				<section>
@@ -388,6 +391,40 @@
 
 				<section>
 					<p>Proposed solution with <em>Bayesian Optimization</em></p>
+					<sub>
+						<ul>
+							<li>Have calculated some initial embeddings</li>
+							<li>What is the next perplexity we should try, ...</li>
+							<li>... in order to maximize the chance to approach the best perplexity?</li>
+						</ul>
+					</sub>
+					<hr>
+					<p>Always using the <em>constraint preserving scores</em> as a criteria to find the next perplexity
+					</p>
+					<!-- <p>Goal: find a visualization that respects the user's constraints and has good quality</p> -->
+				</section>
+
+				<section data-transition="none">
+					<center><img width="100%" data-src="./hello_minh/FASHION200_niter5.png" /></center>
+				</section>
+				<section data-transition="none">
+					<center><img width="100%" data-src="./hello_minh/FASHION200_niter6.png" /></center>
+				</section>
+				<section data-transition="none">
+					<center><img width="100%" data-src="./hello_minh/FASHION200_niter7.png" /></center>
+				</section>
+				<section data-transition="none">
+					<center><img width="100%" data-src="./hello_minh/FASHION200_niter8.png" /></center>
+				</section>
+				<section data-transition="none">
+					<center><img width="100%" data-src="./hello_minh/FASHION200_niter9.png" /></center>
+				</section>
+				<section data-transition="none">
+					<center><img width="100%" data-src="./hello_minh/FASHION200_niter10.png" /></center>
+				</section>
+				<section data-transition="none">
+					<center><img width="100%" data-src="./hello_minh/FASHION200_niter11.png" /></center>
+				</section>
 				</section>
 			</section>
 
