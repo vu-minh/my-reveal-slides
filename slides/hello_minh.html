@@ -162,6 +162,11 @@
 
 			<section>
 				<h3>Scope</h3>
+				<p>+ Machine Learning for Information Visualization $\longrightarrow$ Dimensionality Reduction (DR)
+					methods</p>
+				<p>+ Users interact with the visualization to give their feedbacks</p>
+				<p>+ Research goal: transform the cognitive feedbacks of the users into constraints for the DR methods
+				</p>
 			</section>
 
 
@@ -174,31 +179,42 @@
 
 			<section>
 				<h3>What we've done so far</h3>
-				<ul>
-					<li>
-						<p>literature review of DR methods with constraints</p>
-					</li>
-					<li>
-						<p>2 works with t-SNE</p> (intro what are they)
-					</li>
-					<li>
-						<p>first try with probabilistic DR method</p>
-					</li>
-				</ul>
+				<p>+ Literature review of DR methods with constraints</p>
+				<p>+ Two works with t-SNE:
+					<ul>
+						<li>Incorporate fixed-point constraints to t-SNE</li>
+						<li>Use the user's pairwise constraints to find the best t-SNE visualization</li>
+					</ul>
+				</p>
+				<p>+Incorporate fixed-point constraints to the probabilistic PCA model</p>
 			</section>
 
 
 			<section>
 				<h3>Review of DR methods with constraints</h3>
-				<p>Category</p>
+				<p>+ Consider the user's feedback as constraints to the system</p>
+				<p>+ Categorization</p>
+				<ul>
+					<li>Instance-level</li>
+					<li>Group-level</li>
+					<li>Feature-level</li>
+					<li>Dataset-level</li>
+				</ul>
+				<p><sub>$\rightarrow$ The review scope is too large, the categorization is not sound.</sub></p>
 			</section>
 
 
 			<section>
 				<h3>Fixed point constraints with t-SNE</h3>
 				<section>
-					<p>Motivation</p>
-					<p>Goal</p>
+					<p>+ Fix the position of some anchor points</p>
+					<p>+ Attract their neighbors to move towards the fixed points</p>
+					<p>+ Goal:
+						<ul>
+							<li>Merge the small clusters</li>
+							<li>Split the large cluster</li>
+						</ul>
+					</p>
 				</section>
 				<section>
 					<img width="48%" data-src="./hello_minh/tsne_fixedpoint_before.png" />
@@ -214,8 +230,18 @@
 			<section>
 				<h3>Tuning perplexity with user constraints</h3>
 				<section>
-					<p>Motivation</p>
-					<p>Goal</p>
+					<sub>
+						<p>+ t-SNE's perplexity is not easy to tune and to find the best one</p>
+						<p>+ Let the users define their requirements about the visualization in form of pairwise
+							constraints:
+							<ul>
+								<li>Similar links to connect similar objects</li>
+								<li>Dissimilar links to connect dissimilar objects</li>
+							</ul>
+						</p>
+						<p>+ Transform the user defined constraints into a <em>constraint-preserving score</em></p>
+						<p>+ Use this score as a criteria to select the best perplexity</p>
+					</sub>
 				</section>
 
 				<section style="font-size:0.75em !important;">
@@ -254,11 +280,6 @@
 
 			<section>
 				<h3>Interactive PPCA</h3>
-				<section>
-					<p>Motivation for Probabilistic Principle Component Analysis (PPCA) model </p>
-					<p>Goal: user-steering...</p>
-				</section>
-
 				<section data-transition="none" style="font-size:0.75em !important;">
 					<p>Initial visualization with the PPCA model.</p>
 					<center><img width="50%" data-src="./hello_minh/FASHION100_init_ppca.png" /></center>
@@ -292,7 +313,14 @@
 				</section>
 
 				<section>
-					<p>Techniques</p>
+					<p>+ The embedding in 2D space $\approx$ the latent variables</p>
+					<p>+ The position of the selected points is modeled directly into the prior distribution of the
+						latent variables</p>
+					<p>+ Can use the black-box inference toolbox to infer the latent variables</p>
+					<p>+ Usage: Communicate the result, make some patterns in the visualization easier to understand</p>
+					<hr>
+					<p class="fake_footer"><a href="pyro.ai">pyro</a>, <a
+							href="https://www.tensorflow.org/probability">Tensorflow probability</a></p>
 				</section>
 
 				<section data-background-iframe="http://localhost:8881/notebooks/Interactive%20PPCA%20model.ipynb"
@@ -311,7 +339,8 @@
 
 			<section>
 				<h3>Ongoing works with t-SNE</h3>
-				<p>Difficulty when working with t-SNE?</p>
+				<p>+ Integrate pairwise constraints instead of fixed-point constraints</p>
+				<p>+ Find best perplexity for t-SNE by using the user defined pairwise constraints</p>
 			</section>
 
 
@@ -375,8 +404,14 @@
 				<h3>Finding the best perplexity for t-SNE</h3>
 
 				<section>
-					<p>Problem of scalability</p>
-					Intro TVCG paper
+					<sub>
+						<p>+ Proposed to use the constraint-preserving score to find the best perplexity</p>
+						<p>+ Should pre-calculate many t-SNE embeddings corresponding to different perplexity</p>
+						<p>+ Calculate the constraint scores for all embeddings and search for the perplexity that makes
+							the
+							constraint score maximum</p>
+						<p>$\rightarrow$ scalability problem</p>
+					</sub>
 				</section>
 
 				<section>
@@ -444,18 +479,41 @@
 
 			<section>
 				<h3>Future works: probabilistic DR models</h3>
-				<ul>
-					<li>Integrate user's constraints into Gaussian Process models</li>
-					<li>Modify the structure of the latent space or the generated samples with Variational Auto-encoder
-						(VAE)</li>
-					<li>Understand the latent representation of the probabilistic generative model by visualizing their
-						features in the network</li>
-				</ul>
+				<section>
+					<center><img width="70%" src="./hello_minh/box_model_revise.png" /></center>
+					<p class="fake_footer">Variational Inference: Foundations and Modern Methods [Blei2016]</p>
+				</section>
+				<section>
+					<ul>
+						<li>Integrate user's constraints into Gaussian Process models</li>
+						<li>Modify the structure of the latent space or the generated samples with Variational
+							Auto-encoder
+							(VAE)</li>
+						<li>Understand the latent representation of the probabilistic generative model by visualizing
+							their
+							features in the network</li>
+					</ul>
+				</section>
 			</section>
 
 			<section>
 				<h3>Gaussian Process Latent Variable Model</h3>
-				<p>GP-LVM</p>
+				<p>PPCA $\leftrightarrow$ Dual PPCA $\rightarrow$ GP-LVM</p>
+				<sub>
+					<ul>
+						<li>We would learn a mapping (a function) to map the data from HD to LD (or vice versa)</li>
+						<li>There exist many mapping functions</li>
+						<li>Gaussian Process allows us to express a distribution over these functions</li>
+						<li>and help us to find the most promising function that represent well the data</li>
+					</ul>
+				</sub>
+				<hr>
+				<div class="fake_footer">
+					<p>Gaussian process latent variable models for visualisation of high dimensional data [Lawrence2004]
+					</p>
+					<p>Probabilistic non-linear principal component analysis with Gaussian process latent variable
+						models [Lawrence2005]</p>
+				</div>
 			</section>
 
 			<section>
@@ -515,9 +573,24 @@ qPCR data:
 			</section>
 
 			<section>
-				<h3>Variational Auto-encoder</h3>
+				<h3>Variational Auto-encoder (VAE)</h3>
 				<section>
-					<li>Control how the new sample is generated</li>
+					<ul>
+						<li>The encoder and decoder can be neural networks</li>
+						<li>Learn the representation of the data in the latent space</li>
+						<li>Has an explicit mapping for the new examples</li>
+					</ul>
+					<p>User's constraints to</p>
+					<ul>
+						<li>Modify the representation of the latent space</li>
+						<li>Control how the new sample is generated</li>
+					</ul>
+					<hr>
+					<div class="fake_footer">
+						<p>Semi-supervised learning with deep generative models [Kingma2014]</p>
+						<p>Learning structured output representation using deep conditional generative models [Sohn2015]
+						</p>
+					</div>
 				</section>
 				<section class="hide_title"
 					data-background-iframe="../distill_pub/non_public/VISxAI 2018_ Towards an Interpretable Latent Space_demo_vae.html"
@@ -544,10 +617,11 @@ qPCR data:
 				<section>
 					<ul>
 						<li>Integrate user's constraints into Gaussian Process and VAE models</li>
-						<li>More general, build a unified probabilistic model that can represent different kinds of
-							user's constraints</li>
+						<li>More general, build a unifying framework that can represent different kinds of
+							user's constraints for the probabilistic DR models</li>
 						<li>Visualizing the internal features of a generative model</li>
 					</ul>
+					<p>Focus only on the modeling problem, not inference problem</p>
 					<hr>
 					<p class="fake_footer">Bayesian visual analytics: Bava [House2015]</p>
 				</section>
