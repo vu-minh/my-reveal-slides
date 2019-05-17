@@ -376,6 +376,7 @@
 
 				<section>
 					<p>Problem of scalability</p>
+					Intro TVCG paper
 				</section>
 
 				<section>
@@ -443,6 +444,13 @@
 
 			<section>
 				<h3>Future works: probabilistic DR models</h3>
+				<ul>
+					<li>Integrate user's constraints into Gaussian Process models</li>
+					<li>Modify the structure of the latent space or the generated samples with Variational Auto-encoder
+						(VAE)</li>
+					<li>Understand the latent representation of the probabilistic generative model by visualizing their
+						features in the network</li>
+				</ul>
 			</section>
 
 			<section>
@@ -460,9 +468,12 @@
 						<li>Data values are measurements of each gene ... </li>
 						<li>... at various stages of development: from the 1-cell stage to the 64-cell stage</li>
 					</ul>
-					<p class="fake_footer">Resolution of Cell Fate Decisions Revealed by Single-Cell Gene Expression Analysis from Zygote to Blastocyst.
-							<a href="https://www.sciencedirect.com/science/article/pii/S1534580710001103?via%3Dihub">[Guo2010]</a></p>
-					
+					<p class="fake_footer">Resolution of Cell Fate Decisions Revealed by Single-Cell Gene Expression
+						Analysis from Zygote to Blastocyst.
+						<a
+							href="https://www.sciencedirect.com/science/article/pii/S1534580710001103?via%3Dihub">[Guo2010]</a>
+					</p>
+
 				</section>
 
 				<section>
@@ -481,33 +492,95 @@ qPCR data:
 ...
 					</pre>
 				</section>
-				
+
 				<section data-background-iframe="./hello_minh/qPCR_bokeh_group1.html" data-background-interactive>
 				</section>
-	
+
 				<section>
-						<center><img width="65%" src="./hello_minh/explain_qPRC_data.jpg" /></center>
-						<p class="fake_footer">Image credit: Formation of the blastocyst during early mammalian embryonic development.
-							<a href="https://www.mskcc.org/research/ski/labs/anna-katerina-hadjantonakis/i-morphogenesis-early-mammalian-embryo">[url]</a></p>
+					<center><img width="65%" src="./hello_minh/explain_qPRC_data.jpg" /></center>
+					<p class="fake_footer">Image credit: Formation of the blastocyst during early mammalian embryonic
+						development.
+						<a
+							href="https://www.mskcc.org/research/ski/labs/anna-katerina-hadjantonakis/i-morphogenesis-early-mammalian-embryo">[url]</a>
+					</p>
 				</section>
-					
+
 				<section data-background-iframe="./hello_minh/qPCR_bokeh_group2.html" data-background-interactive>
 					<p class="fake_footer" style="position: absolute; top:500px;">
-						Reproduce from: GrandPrix scaling up the Bayesian GPLVM for single-cell data <a href="https://academic.oup.com/bioinformatics/article/35/1/47/5047752">[Ahmed2019]</a>,
+						Reproduce from: GrandPrix scaling up the Bayesian GPLVM for single-cell data <a
+							href="https://academic.oup.com/bioinformatics/article/35/1/47/5047752">[Ahmed2019]</a>,
 						with pyro tutorial on GP-LVM <a href="http://pyro.ai/examples/gplvm.html">[url]</a></p>
 				</section>
 
 			</section>
 
 			<section>
-				<h3>VAE</h3>
-				<section class="hide_title" data-background-iframe="../distill_pub/non_public/VISxAI 2018_ Towards an Interpretable Latent Space_demo_vae.html"
+				<h3>Variational Auto-encoder</h3>
+				<section>
+					<li>Control how the new sample is generated</li>
+				</section>
+				<section class="hide_title"
+					data-background-iframe="../distill_pub/non_public/VISxAI 2018_ Towards an Interpretable Latent Space_demo_vae.html"
 					data-background-interactive>
 				</section>
 			</section>
 
 			<section>
+				<h3>Feature viz. for a generative model</h3>
+				<section>
+					<p>E.g., visualize the latent representation of VAE</p>
+					<p>Goal: understand the latent structure, the contribution of the latent features to the output
+						generated sample.</p>
+				</section>
+
+				<section data-background-iframe="../distill_pub/post--feature-visualization/public/index.html"
+					data-background-interactive>
+				</section>
+			</section>
+
+
+			<section>
 				<h3>Summary the future works</h3>
+				<section>
+					<ul>
+						<li>Integrate user's constraints into Gaussian Process and VAE models</li>
+						<li>More general, build a unified probabilistic model that can represent different kinds of
+							user's constraints</li>
+						<li>Visualizing the internal features of a generative model</li>
+					</ul>
+					<hr>
+					<p class="fake_footer">Bayesian visual analytics: Bava [House2015]</p>
+				</section>
+				<section>
+					<h4>Other discrete ideas</h4>
+					<sub>
+						<p></p>Uncertainty Visualization: Incorporating an indication of uncertainty into visual
+						representation</p>
+						<hr>
+						<p>References:</p>
+						<ul style="font-size:30px">
+							<li><em>Visualization of uncertainty</em> vs <em>Uncertainty of the
+									visualization</em>
+								<p class="fake_footer">A review of uncertainty in data visualization. Expanding
+									the Frontiers of Visual Analytics and Visualization [Brodlie2012]</p>
+							</li>
+							<li>Visualising uncertainty in dropout Bayesian neural networks, e.g., the dropout
+								masks and the dropout probability
+								<p class="fake_footer">Dropout as a Bayesian Approximation: Representing Model
+									Uncertainty in Deep Learning</p>
+							</li>
+						</ul>
+
+					</sub>
+				</section>
+				<section>
+					<h4>Other discrete ideas</h4>
+					<sub>Enhance the visualization by pre-trained models</sub>
+					<center><img width="60%" src="./hello_minh/other_ideas_drpr.png" /></center>
+					<hr>
+					<p class="fake_footer">Dimensionality Reduction for Representing the Knowledge of Probabilistic
+						Models [Law2019]</p>
+				</section>
 			</section>
 
 			<!-- ################################################################################################ -->
@@ -519,11 +592,6 @@ qPCR data:
 				<h3>Recap: Some ideas we can work on</h3>
 				<center><img src="./hello_minh/workplan_recap.png" /></center>
 			</section>
-
-			<!-- ################################################################################################ -->
-
-
-
 
 			<section id="end">
 				<center>
